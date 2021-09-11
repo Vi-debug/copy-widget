@@ -1,0 +1,59 @@
+{
+  "name": "copywidget",
+	"displayName": "Copy Widget",
+	"description": "Copy Widget helps you quickly select (hightlight) a widget and its parents",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Vi-debug/copy-widget.git"
+	},
+	"publisher": "FushiArt",
+	"icon": "assets/logo.jpg",
+	"version": "0.0.3",
+	"engines": {
+		"vscode": "^1.60.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+        "onCommand:copy-widget.highlight"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "copy-widget.highlight",
+				"title": "Highlight a widget"
+			}
+		],
+		"keybindings" : [
+			{
+				"command": "copy-widget.highlight",
+				"key": "alt+w",
+				"mac": "alt+w",
+				"when": "editorFocus"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.60.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "14.x",
+		"eslint": "^7.27.0",
+		"@typescript-eslint/eslint-plugin": "^4.26.0",
+		"@typescript-eslint/parser": "^4.26.0",
+		"glob": "^7.1.7",
+		"mocha": "^8.4.0",
+		"typescript": "^4.3.2",
+		"vscode-test": "^1.5.2"
+	}
+}
